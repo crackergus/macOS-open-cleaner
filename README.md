@@ -4,18 +4,20 @@ A MacOS open source cleaner.
 
 Utility macOS con interfaccia grafica per esaminare e rimuovere elementi dalle cache utente, dai log e dal Cestino. La scansione è in anteprima; la rimozione richiede una selezione e una conferma.
 
-## Creare l'app standalone
+## Versione e bundle scaricabile
 
-Requisiti: macOS, Python 3 con Tkinter e accesso a Internet al primo build.
+La versione corrente è definita in `VERSION` secondo SemVer. Requisiti di build: macOS, Python 3 con Tkinter e accesso a Internet al primo build.
 
 ```sh
 sh build-macos-app.sh
 open "$HOME/Applications/MACOS OPEN CLEANER.app"
 ```
 
-Lo script crea un ambiente isolato in `.build/`, installa PyInstaller e genera il bundle in `~/Applications/MACOS OPEN CLEANER.app`. La cartella Applications evita che la sincronizzazione File Provider del Desktop aggiunga metadati che invalidano la firma. Il bundle include Python e Tkinter, quindi non richiede un'installazione Python per l'esecuzione. L'architettura risultante corrisponde a quella dell'interprete Python usato per il build; per Apple Silicon usare un interprete arm64.
+Lo script crea un ambiente isolato in `.build/`, installa PyInstaller e genera l'app in `~/Applications/MACOS OPEN CLEANER.app`. Inoltre crea in `dist/` un archivio `.zip` versionato per l'architettura dell'interprete usato e il relativo file `.sha256`. La cartella Applications evita che la sincronizzazione File Provider del Desktop aggiunga metadati che invalidano la firma. Il bundle include Python e Tkinter, quindi non richiede un'installazione Python per l'esecuzione.
 
-La build locale è firmata ad hoc, non con un certificato Developer ID e non è notarizzata da Apple. Per distribuire l'app ad altri utenti occorrono firma Developer ID e notarizzazione.
+Il bundle è firmato ad hoc, non con un certificato Developer ID e non è notarizzato da Apple. macOS può bloccarne l'apertura dopo il download; per una distribuzione senza avvisi servono firma Developer ID e notarizzazione Apple.
+
+Le release e gli archivi scaricabili sono pubblicati nella [pagina GitHub Releases](https://github.com/crackergus/macOS-open-cleaner/releases/latest).
 
 ## Permessi macOS
 

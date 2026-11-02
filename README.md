@@ -1,5 +1,7 @@
 # MACOS OPEN CLEANER
 
+A MacOS open source cleaner.
+
 Utility macOS con interfaccia grafica per esaminare e rimuovere elementi dalle cache utente, dai log e dal Cestino. La scansione è in anteprima; la rimozione richiede una selezione e una conferma.
 
 ## Creare l'app standalone
